@@ -1,0 +1,44 @@
+  Todo:
+  
+1. in Addpost page, redirect to post page after submitted .
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	// alert('done')
+	engine(first_name, 0, "Name must be their")
+	engine(last_name, 1, " Last Name must be their")
+
+})
+
+
+
+$(document).ready(function() {
+	console.log('jquery loading');
+	$('#form-regi').on('submit', function(e) {
+		e.preventDefault();
+		// loading btn hide and show code 
+		let form = new FormData(this);
+		$.ajax({
+			type: 'POST',
+			url: "SaveRegistDataServlet",
+			data: form,
+			success: function(data, textStatus, jqXHR) {
+				console.log(data);
+				if (data.trim() === 'data have been saved in DB') {
+					window.location = "login_page.jsp"
+				}
+			},
+			error: function(data, textStatus, jqXHR) {
+				console.log("data not saved in db");
+			},
+			processData: false,
+			contentType: false
+		});
+
+
+	})
+})
+
+for (var [key, value] of form.entries()) { 
+        console.log(key, value);
+    }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .addcolor{
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+    <p onclick="calling('android')">this is click function</p>
+    <button id="btn" onclick="calling(this)">submit</button>
+
+    <script>
+function calling(call){
+    console.log(call);
+    // var element = document.getElementById('btn');
+    call.classList.add('addcolor');
+}
+    </script>
+</body>
+</html>
